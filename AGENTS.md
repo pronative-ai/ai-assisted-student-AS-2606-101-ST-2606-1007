@@ -52,8 +52,16 @@ AMAZON_AWS_ROLE_ARN
 
 Winston writes to `logs/combined.log` (all levels, 10MB rotated) and `logs/error.log` (errors only, 5MB rotated). Console output always active. Set `LOG_LEVEL` env for verbosity.
 
+## Workflows
+
+| Type | Location | What it does |
+|---|---|---|
+| GitHub Actions CI | `.github/workflows/ci.yml` | Runs on push/PR to `main`: `npm ci` → `prisma generate` → `tsc --noEmit` |
+| Pre-commit hook | `hooks/pre-commit` | Runs `tsc --noEmit` before each commit |
+
+Install the pre-commit hook: `powershell -ExecutionPolicy Bypass -File scripts\setup-hooks.ps1`
+
 ## Missing (watch for)
 
-- No `.gitignore` — `node_modules/`, `dist/`, `dev.db`, `logs/`, `.env` should be ignored
 - No test framework
-- No CI/CD config
+- No CI/CD config (historical — CI workflow added)
