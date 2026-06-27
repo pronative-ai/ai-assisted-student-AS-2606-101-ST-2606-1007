@@ -9,4 +9,9 @@ public interface ICosmosTelemetryRepository
     Task<List<TokenUsageMetricRecord>> GetMetricRecordsAsync(
         string studentKey, string metricName, string tokenType,
         DateTime startTime, DateTime endTime);
+    Task<TokenUsageMetricRecord?> GetLatestSampleAtOrBeforeAsync(
+        string studentKey, string metricName, string tokenType, DateTime beforeTime);
+    Task<TokenUsageMetricRecord?> GetEarliestSampleInWindowAsync(
+        string studentKey, string metricName, string tokenType,
+        DateTime windowStart, DateTime windowEnd);
 }
