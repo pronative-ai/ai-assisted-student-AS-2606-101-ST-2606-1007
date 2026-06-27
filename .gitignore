@@ -1,1 +1,26 @@
+# Build output
+bin/
+obj/
 
+# IDE files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# dotnet
+*.nupkg
+*.log
+*.svclog
+
+# OS generated
+.DS_Store
+Thumbs.db

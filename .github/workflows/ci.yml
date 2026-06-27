@@ -13,15 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-dotnet@v4
         with:
-          node-version: 22
-          cache: npm
+          dotnet-version: 8.0.x
 
-      - run: npm ci
+      - run: dotnet restore src/OpenCode.sln
 
-      - run: npx prisma generate
-        env:
-          DATABASE_URL: file:./dev.db
+      - run: dotnet build src/OpenCode.sln --no-restore --configuration Release
 
-      - run: npx tsc --noEmit
+      - run: dotnet test src/OpenCode.sln --no-build --configuration Release
