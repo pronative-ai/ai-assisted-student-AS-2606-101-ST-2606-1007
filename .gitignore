@@ -21,6 +21,15 @@ obj/
 *.log
 *.svclog
 
+# Node.js
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Environment
+.env.local
+.env.*.local
+
 # OS generated
 .DS_Store
 Thumbs.db
